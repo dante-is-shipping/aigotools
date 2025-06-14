@@ -1,5 +1,5 @@
 import createMiddleware from "next-intl/middleware";
-import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
+import { auth } from "@/auth";
 
 import { localePrefix, locales } from "./navigation";
 import { AvailableLocales } from "./lib/locales";
@@ -11,32 +11,36 @@ const intlMiddleware = createMiddleware({
   localePrefix: localePrefix,
 });
 
-const isManageRoute = createRouteMatcher(["/(.*)/dashboard"]);
+export default auth((req) => {
+  const nextPathname = req.nextUrl.pathname;
+  // Skip auth for API routes
+  if (/^\/(api|trpc|sitemap)/.test(nextPathname)) {
+    return;
+  }
 
-const isUserRoute = createRouteMatcher(["/(.*)/submit"]);
+  // Check if user route requires authentication
+  if (nextPathname.includes('/submit')) {
+    if (!req.auth) {
+      const signInUrl = new URL('/signin', req.url);
+      signInUrl.searchParams.set('callbackUrl', req.url);
+      return Response.redirect(signInUrl);
+    }
+  }
 
-export default clerkMiddleware(
-  (auth, req) => {
-    if (isUserRoute(req)) auth().protect();
-
-    if (isManageRoute(req)) {
-      const { userId, redirectToSignIn } = auth();
-
-      if (!userId || !AppConfig.manageUsers.includes(userId)) {
-        return redirectToSignIn();
-      }
+  // Check if dashboard route requires admin access
+  if (nextPathname.includes('/dashboard')) {
+    if (!req.auth) {
+      const signInUrl = new URL('/signin', req.url);
+      return Response.redirect(signInUrl);
     }
 
-    const nextPathname = req.nextUrl.pathname;
-
-    if (/^\/(api|trpc|sitemap)/.test(nextPathname)) {
-      return;
+    const userId = req.auth.user?.id;
+    if (!userId || !AppConfig.manageUsers.includes(userId)) {
+      return Response.redirect(new URL('/', req.url));
     }
-
-    return intlMiddleware(req);
-  },
-  { debug: AppConfig.debugClerk }
-);
+  }
+  return intlMiddleware(req);
+});
 
 export const config = {
   matcher: ["/((?!.+\\.[\\w]+$|_next).*)", "/", "/(api|trpc)(.*)"],

@@ -31,6 +31,10 @@
     "clearAll": "Clear All",
     "more": "More +"
   },
+  "signin": {
+    "title": "sigin In",
+    "continueWithGoogle": "Sign in with Google"
+  },
   "metadata": {
     "title": "aigotools.com",
     "description": "AigoTools is a leading AI tools directory and search engine. AigoTools helps you discover the best AI tools,apps and services list and takes your personal and business productivity to the next level.",
@@ -54,14 +58,18 @@
     "relatedSearchs": "Related Searchs"
   },
   "search": {
-    "metadata": { "title": "Search AI tools" },
+    "metadata": {
+      "title": "Search AI tools"
+    },
     "result": "Search Result",
     "empty": "Oppos,no result...",
     "loadMore": "Load More",
     "loadFailed": "Load Failed"
   },
   "submit": {
-    "metadata": { "title": "Submit yout AI Tool" },
+    "metadata": {
+      "title": "Submit yout AI Tool"
+    },
     "title": "Submit yout AI Tool",
     "subTitle": "Submit your website in one minute",
     "websiteName": "Website Name",
@@ -75,7 +83,6 @@
     "failSubmit": "Fail to submit, please retry or contact us",
     "request": "Add {code} to your website homepage, and then you can submit your website successfully for free！"
   },
-
   "reviewManage": {
     "title": "Review Manage",
     "siteName": "Site Name",
@@ -189,7 +196,9 @@
     "weight": "Weight"
   },
   "categories": {
-    "metadata": { "title": "Categories" },
+    "metadata": {
+      "title": "Categories"
+    },
     "loadFailed": "Load Failed"
   }
 }

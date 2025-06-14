@@ -4,8 +4,7 @@ import { ThumbsUpIcon } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { useAuth } from "@clerk/nextjs";
-import { SignInButton } from "@clerk/nextjs";
+import { useSession, signIn } from "next-auth/react";
 import clsx from "clsx";
 
 import { Site } from "@/models/site";
@@ -13,10 +12,10 @@ import { isUserUpVoteSite, triggerUpvoteSite } from "@/lib/actions";
 
 export default function VoteButton({ site }: { site: Site }) {
   const t = useTranslations("site");
+  const { data: session } = useSession();
   const [isUpvoted, setIsUpvoted] = useState(false);
   const [voteCount, setVoteCount] = useState(site.voteCount);
   const [isLoading, setIsLoading] = useState(false);
-  const { isSignedIn } = useAuth();
 
   const triggerUpvote = async () => {
     try {
@@ -38,13 +37,15 @@ export default function VoteButton({ site }: { site: Site }) {
   useEffect(() => {
     const update = async () => {
       setVoteCount(site.voteCount);
-      setIsUpvoted(await isUserUpVoteSite(site._id));
+      if (session?.user?.id) {
+        setIsUpvoted(await isUserUpVoteSite(site._id));
+      }
     };
 
     update().finally(() => {
       setIsLoading(false);
     });
-  }, [isSignedIn, site]);
+  }, [session, site]);
 
   const button = (
     <Button
@@ -55,7 +56,7 @@ export default function VoteButton({ site }: { site: Site }) {
       isLoading={isLoading}
       radius="sm"
       variant={isUpvoted ? "solid" : "bordered"}
-      onClick={isSignedIn ? triggerUpvote : undefined}
+      onClick={session ? triggerUpvote : () => signIn()}
     >
       <ThumbsUpIcon size={14} strokeWidth={3} />
       {t("upvote")}
@@ -63,16 +64,5 @@ export default function VoteButton({ site }: { site: Site }) {
     </Button>
   );
 
-  return isSignedIn ? (
-    button
-  ) : (
-    <SignInButton
-      forceRedirectUrl={
-        typeof window !== "undefined" ? window.location.href : undefined
-      }
-      mode="modal"
-    >
-      {button}
-    </SignInButton>
-  );
+  return button;
 }

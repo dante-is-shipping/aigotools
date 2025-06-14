@@ -1,5 +1,5 @@
 "use server";
-import { currentUser } from "@clerk/nextjs/server";
+import { auth } from "@/auth";
 import { FilterQuery } from "mongoose";
 import axios from "axios";
 
@@ -94,26 +94,26 @@ export async function searchSites({
 
     const regFindSites = search
       ? await SiteModel.find({
-          $or: [
-            { name: { $regex: search, $options: "i" } },
-            { siteKey: { $regex: search, $options: "i" } },
-          ],
-          state: SiteState.published,
-        })
-          .sort({ weight: -1, updatedAt: -1 })
-          .limit(12)
+        $or: [
+          { name: { $regex: search, $options: "i" } },
+          { siteKey: { $regex: search, $options: "i" } },
+        ],
+        state: SiteState.published,
+      })
+        .sort({ weight: -1, updatedAt: -1 })
+        .limit(12)
       : [];
 
     query._id = { $nin: [] };
 
     const baseFindTask = search
       ? SiteModel.find(query, { score: { $meta: "textScore" } }).sort({
-          score: { $meta: "textScore" },
-        })
+        score: { $meta: "textScore" },
+      })
       : SiteModel.find(query).sort({
-          weight: -1,
-          updatedAt: -1,
-        });
+        weight: -1,
+        updatedAt: -1,
+      });
 
     const findTask = baseFindTask
       .skip((page - 1) * pageSize)
@@ -761,4 +761,8 @@ export async function getAllCategories() {
     console.log("Get all cateogry error", error);
     throw error;
   }
+}
+export async function currentUser() {
+  const session = await auth();
+  return session?.user;
 }

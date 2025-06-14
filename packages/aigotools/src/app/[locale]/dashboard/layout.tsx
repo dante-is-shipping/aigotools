@@ -1,8 +1,9 @@
 "use client";
-import { UserButton } from "@clerk/nextjs";
 import { useTranslations } from "next-intl";
+import { useSession } from "next-auth/react"
+import { useRouter } from "next/navigation";
 import clsx from "clsx";
-
+import { useEffect } from "react";
 import Logo from "@/components/common/logo";
 import { ThemeSwitcher } from "@/components/common/theme-switcher";
 import { Link, usePathname } from "@/navigation";
@@ -13,8 +14,20 @@ export default function DashbpardLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const { data: session, status } = useSession()
+  const router = useRouter();
   const pathname = usePathname();
   const t = useTranslations("dashboard");
+  useEffect(() => {
+    if (status === "loading") return;
+    if (!session) {
+      router.push("/signin");
+    }
+  }, [session, status, router]);
+
+  if (status === "loading") {
+    return <div>Loading...</div>;
+  }
 
   const menus = [
     {
@@ -60,7 +73,7 @@ export default function DashbpardLayout({
           })}
         </div>
         <div className="flex items-center justify-between mt-6 gap-2">
-          <UserButton />
+          <span className="text-sm text-gray-700">{session.user?.name}</span>
           <div className="flex-1" />
           <LanguageSwitcher />
           <ThemeSwitcher />

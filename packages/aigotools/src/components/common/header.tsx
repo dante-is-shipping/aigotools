@@ -10,13 +10,7 @@ import {
   DropdownMenu,
   DropdownTrigger,
 } from "@nextui-org/react";
-import {
-  SignInButton,
-  SignedIn,
-  SignedOut,
-  useAuth,
-  useUser,
-} from "@clerk/nextjs";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 import Container from "./container";
 import Logo from "./logo";
@@ -28,19 +22,19 @@ import { Link } from "@/navigation";
 
 export default function Header({ className }: { className?: string }) {
   const t = useTranslations("header");
-
   const locale = useLocale();
-
-  const user = useUser();
-  const { signOut } = useAuth();
+  const { data: session, status } = useSession();
 
   const isManager =
-    user.user?.id && AppConfig.manageUsers.includes(user.user.id);
+    session?.user?.id && AppConfig.manageUsers.includes(session.user.id);
 
-  const forceRedirectUrl =
-    typeof window === "undefined"
-      ? null
-      : `${window.location.origin}/${locale}/submit`;
+  const handleSignIn = () => {
+    signIn(undefined, { callbackUrl: `/${locale}/submit` });
+  };
+
+  const handleSignOut = () => {
+    signOut({ callbackUrl: "/" });
+  };
 
   return (
     <Container
@@ -56,56 +50,67 @@ export default function Header({ className }: { className?: string }) {
         </Link>
         <LanguageSwitcher />
         <ThemeSwitcher />
-        <SignedOut>
-          <SignInButton forceRedirectUrl={forceRedirectUrl} mode="modal">
-            <Button className="font-semibold" color="primary" size="sm">
+        {status === "loading" ? (
+          <div className="w-8 h-8 animate-pulse bg-gray-200 rounded-full" />
+        ) : !session ? (
+          <>
+            <Button
+              className="font-semibold"
+              color="primary"
+              size="sm"
+              onClick={handleSignIn}
+            >
               {t("submit")}
             </Button>
-          </SignInButton>
-          <SignInButton mode="modal">
-            <Button className="font-semibold" size="sm" variant="bordered">
+            <Button
+              className="font-semibold"
+              size="sm"
+              variant="bordered"
+              onClick={() => signIn()}
+            >
               {t("login")}
             </Button>
-          </SignInButton>
-        </SignedOut>
-        <SignedIn>
-          <Link href={"/submit"}>
-            <Button className="font-semibold" color="primary" size="sm">
-              {t("submit")}
-            </Button>
-          </Link>
-          {isManager && (
-            <Link href={"/dashboard"} target="_blank">
-              <Button
-                className="font-semibold"
-                color="primary"
-                size="sm"
-                variant="bordered"
-              >
-                {t("dashboard")}
+          </>
+        ) : (
+          <>
+            <Link href={"/submit"}>
+              <Button className="font-semibold" color="primary" size="sm">
+                {t("submit")}
               </Button>
             </Link>
-          )}
-          <Dropdown placement="bottom-end">
-            <DropdownTrigger>
-              <Avatar
-                alt={user.user?.fullName || ""}
-                className="cursor-pointer"
-                size="sm"
-                src={user.user?.imageUrl}
-              />
-            </DropdownTrigger>
-            <DropdownMenu>
-              <DropdownItem
-                className="text-danger-400 hover:!text-danger-500"
-                startContent={<LogOut size={14} strokeWidth={3} />}
-                onClick={() => signOut()}
-              >
-                Logout
-              </DropdownItem>
-            </DropdownMenu>
-          </Dropdown>
-        </SignedIn>
+            {isManager && (
+              <Link href={"/dashboard"} target="_blank">
+                <Button
+                  className="font-semibold"
+                  color="primary"
+                  size="sm"
+                  variant="bordered"
+                >
+                  {t("dashboard")}
+                </Button>
+              </Link>
+            )}
+            <Dropdown placement="bottom-end">
+              <DropdownTrigger>
+                <Avatar
+                  alt={session.user?.name || ""}
+                  className="cursor-pointer"
+                  size="sm"
+                  src={session.user?.image || undefined}
+                />
+              </DropdownTrigger>
+              <DropdownMenu>
+                <DropdownItem
+                  className="text-danger-400 hover:!text-danger-500"
+                  startContent={<LogOut size={14} strokeWidth={3} />}
+                  onClick={handleSignOut}
+                >
+                  Logout
+                </DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
+          </>
+        )}
       </div>
     </Container>
   );

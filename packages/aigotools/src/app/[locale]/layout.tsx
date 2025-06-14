@@ -3,7 +3,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { NextUIProvider } from "@nextui-org/react";
 import { ThemeProvider } from "next-themes";
-import { ClerkProvider } from "@clerk/nextjs";
+import { SessionProvider } from "next-auth/react";
 
 import ThemeToastContainer from "@/components/common/theme-toast-container";
 import { AppConfig } from "@/lib/config";
@@ -44,7 +44,7 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <ClerkProvider>
+    <SessionProvider>
       <html lang={locale}>
         <body>
           <main className="text-primary">
@@ -59,6 +59,6 @@ export default async function LocaleLayout({
           </main>
         </body>
       </html>
-    </ClerkProvider>
+    </SessionProvider>
   );
 }
