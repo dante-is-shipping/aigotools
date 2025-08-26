@@ -73,7 +73,7 @@ export default function DashbpardLayout({
           })}
         </div>
         <div className="flex items-center justify-between mt-6 gap-2">
-          <span className="text-sm text-gray-700">{session.user?.name}</span>
+          <span className="text-sm text-gray-700">{session?.user?.name}</span>
           <div className="flex-1" />
           <LanguageSwitcher />
           <ThemeSwitcher />

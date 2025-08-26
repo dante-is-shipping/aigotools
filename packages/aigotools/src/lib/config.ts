@@ -34,6 +34,7 @@ export const AppConfig = {
   cosBase: (process.env.COS_BASE as string) || "",
   cosRegion: (process.env.COS_REGION as string) || "",
   cosBucket: (process.env.COS_BUCKET as string) || "",
+  cosDir: (process.env.COS_DIR as string) || "",
   cosSecertId: (process.env.COS_SECERT_ID as string) || "",
   cosSecertKey: (process.env.COS_SECERT_KEY as string) || "",
 

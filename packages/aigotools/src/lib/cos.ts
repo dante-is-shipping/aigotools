@@ -14,7 +14,8 @@ export async function uploadBufferToCos(
   contentType: string
 ): Promise<string> {
   const subfix = contentType.split("/").pop();
-  const fileKey = subfix ? `${v4()}.${subfix}` : v4();
+  const fileName = subfix ? `${v4()}.${subfix}` : v4();
+  const fileKey = AppConfig.cosDir ? `${AppConfig.cosDir}/${fileName}` : fileName;
 
   try {
     await cos.putObject({

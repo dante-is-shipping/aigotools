@@ -89,7 +89,14 @@ export async function searchSites({
     }
 
     if (category) {
-      query.categories = (await CategoryModel.findOne({ name: category }))?._id;
+      const targetCategory = await CategoryModel.findOne({ name: category });
+      if (targetCategory) {
+        const categoryIds = [targetCategory._id];
+        const childCategories = await CategoryModel.find({ parent: targetCategory._id });
+        categoryIds.push(...childCategories.map(child => child._id));
+
+        query.categories = { $in: categoryIds };
+      }
     }
 
     const regFindSites = search
@@ -550,7 +557,7 @@ export async function updateReviewState(reviewId: string, state: ReviewState) {
 export async function dispatchSiteCrawl(siteId: string) {
   try {
     await assertIsManager();
-
+    console.log("start axios post: ", AppConfig.crawlerGateway, siteId)
     await axios.post(
       `${AppConfig.crawlerGateway}/dispatch`,
       { siteIds: [siteId] },

@@ -8,6 +8,7 @@ export interface CategoryDocument extends mongoose.Document {
   parent?: string;
   featured: boolean;
   weight: number;
+  slug: string;
   createdAt: number;
   updatedAt: number;
 }
@@ -29,6 +30,13 @@ const CategorySchema = new mongoose.Schema<Category>({
   },
   featured: { type: Boolean, default: false },
   weight: { type: Number, default: 0 },
+  // 新增字段的Schema定义
+  slug: {
+    type: String,
+    required: true,
+    unique: true,
+    index: true,
+  },
   createdAt: {
     type: Number,
     default: () => Date.now(),

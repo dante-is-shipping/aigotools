@@ -13,6 +13,7 @@ const intlMiddleware = createMiddleware({
 
 export default auth((req) => {
   const nextPathname = req.nextUrl.pathname;
+  console.log("nextPathname: ", nextPathname)
   // Skip auth for API routes
   if (/^\/(api|trpc|sitemap)/.test(nextPathname)) {
     return;
@@ -26,7 +27,9 @@ export default auth((req) => {
       return Response.redirect(signInUrl);
     }
   }
-
+  console.log("userId: ", req.auth?.user?.id);
+  console.log("AppConfig.manageUsers: ", AppConfig.manageUsers)
+  // console.log("AppConfig.manageUsers.includes(userId): ", AppConfig.manageUsers.includes(req.auth?.user?.id))
   // Check if dashboard route requires admin access
   if (nextPathname.includes('/dashboard')) {
     if (!req.auth) {
@@ -38,6 +41,7 @@ export default auth((req) => {
     if (!userId || !AppConfig.manageUsers.includes(userId)) {
       return Response.redirect(new URL('/', req.url));
     }
+
   }
   return intlMiddleware(req);
 });

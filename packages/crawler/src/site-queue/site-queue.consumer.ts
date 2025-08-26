@@ -36,7 +36,7 @@ export class SiteConsumer {
     private redisService: RedisService,
     private minioService: MinioService,
     private cosService: COSService,
-  ) {}
+  ) { }
 
   private async getUrlScreenshot(url: string) {
     const cacheKey = `aogotools:${encodeURIComponent(url)}:screenshopt`;
@@ -235,6 +235,7 @@ export class SiteConsumer {
     concurrency: 10,
   })
   async crawlSite(job: Job<string>) {
+    console.log("start crawlSite!!!!")
     const siteId = job.data;
     Logger.log(`process site ${siteId} start`);
 

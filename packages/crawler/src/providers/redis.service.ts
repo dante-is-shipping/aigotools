@@ -9,6 +9,7 @@ export class RedisService implements OnModuleInit {
     this.redisClient = new IORedisClient({
       host: configService.get('REDIS_HOST'),
       port: configService.get('REDIS_PORT'),
+      username: configService.get('REDIS_USER'),
       retryStrategy: () => 10000,
       maxRetriesPerRequest: Number.MAX_SAFE_INTEGER,
       password: configService.get('REDIS_PASS'),

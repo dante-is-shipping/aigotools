@@ -19,7 +19,10 @@ export class COSService {
     contentType: string,
   ): Promise<string> {
     const subfix = contentType.split('/').pop();
-    const fileKey = subfix ? `${v4()}.${subfix}` : v4();
+    const fileName = subfix ? `${v4()}.${subfix}` : v4();
+    const fileKey = this.configService.get('COS_DIR')
+      ? `${this.configService.get('COS_DIR')}/${fileName}`
+      : fileName;
 
     try {
       await this.cos.putObject({
