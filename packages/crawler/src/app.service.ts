@@ -18,7 +18,7 @@ export class AppService {
   constructor(
     @InjectModel(Site.name) private siteModel: Model<Site>,
     private readonly siteQueueProducer: SiteQueueProducer,
-  ) {}
+  ) { }
 
   private generateBatchQuery(params: BatchParams) {
     const query: FilterQuery<Site> = { $or: [] };
@@ -35,14 +35,14 @@ export class AppService {
   }
 
   async batchDispatchSiteCrawl(params: BatchParams) {
+    console.log("start batchDispatchSiteCrawl")
     const query = this.generateBatchQuery(params);
-
     const siteIds = (await this.siteModel.distinct('_id', query)).map((id) =>
       id.toString(),
     );
     await this.siteQueueProducer.batchAddCrawlJobs(siteIds);
     Logger.log(`Batch dispatch ${siteIds.length} sites crawl`);
-
+    console.log("after add : ", siteIds)
     await this.siteModel.updateMany(query, {
       $set: { processStage: ProcessStage.processing },
     });

@@ -550,7 +550,7 @@ export async function updateReviewState(reviewId: string, state: ReviewState) {
 export async function dispatchSiteCrawl(siteId: string) {
   try {
     await assertIsManager();
-
+    console.log("start axios post: ", AppConfig.crawlerGateway, siteId)
     await axios.post(
       `${AppConfig.crawlerGateway}/dispatch`,
       { siteIds: [siteId] },
