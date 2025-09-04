@@ -39,7 +39,7 @@ export default function Search({
   const loadHistories = useCallback(() => {
     try {
       setHistories(JSON.parse(window.localStorage.getItem("histories") || ""));
-    } catch {}
+    } catch { }
   }, []);
 
   const saveHistories = useCallback(
