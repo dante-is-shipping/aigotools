@@ -53,6 +53,7 @@ export default function ReviewOperation({
   if (review.state === ReviewState.pending) {
     menuItems.push(
       <DropdownItem
+        key="reject"
         className="text-danger-500"
         startContent={<Ban size={14} />}
         onClick={() => handleUpdateReviewState(review, ReviewState.rejected)}
@@ -60,6 +61,7 @@ export default function ReviewOperation({
         {t("reject")}
       </DropdownItem>,
       <DropdownItem
+        key="approve"
         className="text-success-500"
         startContent={<Check size={14} />}
         onClick={() => handleUpdateReviewState(review, ReviewState.approved)}
@@ -70,6 +72,7 @@ export default function ReviewOperation({
   } else if (review.state === ReviewState.rejected) {
     menuItems.push(
       <DropdownItem
+        key="withdraw"
         className="text-secondary-500"
         startContent={<Bone size={14} />}
         onClick={() => handleUpdateReviewState(review, ReviewState.pending)}

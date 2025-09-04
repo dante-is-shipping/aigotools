@@ -46,7 +46,7 @@ export async function uploadFormDataToS3(formData: FormData) {
 
   const uploadRes = await Promise.all(
     files.map(async (file) => {
-      const buffer = (await file.arrayBuffer()) as Buffer;
+      const buffer = Buffer.from(await file.arrayBuffer());
 
       return uploadBufferToS3(buffer, file.type);
     })

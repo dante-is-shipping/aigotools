@@ -126,6 +126,7 @@ export default function SiteOperation({
       </DropdownTrigger>
       <DropdownMenu>
         <DropdownItem
+          key="publish-toggle"
           className={
             site.state === SiteState.published
               ? "text-danger-500"
@@ -138,6 +139,7 @@ export default function SiteOperation({
         </DropdownItem>
         {site.processStage !== ProcessStage.processing ? (
           <DropdownItem
+            key="dispatch"
             className="text-blue-500"
             startContent={<Atom size={14} />}
             onClick={dispatchSite}
@@ -146,6 +148,7 @@ export default function SiteOperation({
           </DropdownItem>
         ) : (
           <DropdownItem
+            key="stop"
             startContent={<StopCircle size={14} />}
             onClick={stopSite}
           >
@@ -153,6 +156,7 @@ export default function SiteOperation({
           </DropdownItem>
         )}
         <DropdownItem
+          key="edit"
           className="text-yellow-500"
           startContent={<Edit size={14} />}
           onClick={onEdit}
@@ -160,6 +164,7 @@ export default function SiteOperation({
           {t("edit")}
         </DropdownItem>
         <DropdownItem
+          key="delete"
           className="text-danger-500/50"
           startContent={<Trash2 size={14} />}
           onClick={handleDeleteSite}

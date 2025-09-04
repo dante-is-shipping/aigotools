@@ -260,7 +260,7 @@ export async function submitReview(name: string, url: string) {
       name,
       url,
       userId: user.id,
-      userEmail: user.primaryEmailAddress?.emailAddress,
+      userEmail: user.email,
     });
 
     return true;

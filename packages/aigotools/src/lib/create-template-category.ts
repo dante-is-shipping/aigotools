@@ -4,6 +4,7 @@ export const createTemplateCategory = (category: Partial<Category> = {}) => {
   const newCategory: Omit<Category, "_id"> = {
     name: "",
     icon: "",
+    slug: "",
     createdAt: Date.now(),
     updatedAt: Date.now(),
     featured: false,

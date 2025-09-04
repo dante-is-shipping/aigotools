@@ -92,7 +92,7 @@ export default function Search({
             </DropdownItem>
           )) as any
         }
-        <DropdownItem onClick={() => clearHistories()}>
+        <DropdownItem key="clear-all" onClick={() => clearHistories()}>
           <Button
             className="w-full"
             color="danger"

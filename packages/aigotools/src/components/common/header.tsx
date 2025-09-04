@@ -101,6 +101,7 @@ export default function Header({ className }: { className?: string }) {
               </DropdownTrigger>
               <DropdownMenu>
                 <DropdownItem
+                  key="logout"
                   className="text-danger-400 hover:!text-danger-500"
                   startContent={<LogOut size={14} strokeWidth={3} />}
                   onClick={handleSignOut}

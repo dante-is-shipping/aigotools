@@ -56,6 +56,7 @@ export default function CategoryOperation({
       </DropdownTrigger>
       <DropdownMenu>
         <DropdownItem
+          key="edit"
           className="text-yellow-500"
           startContent={<Edit size={14} />}
           onClick={onEdit}
@@ -63,6 +64,7 @@ export default function CategoryOperation({
           {t("edit")}
         </DropdownItem>
         <DropdownItem
+          key="delete"
           className="text-danger-500/50"
           startContent={<Trash2 size={14} />}
           onClick={handleDelete}

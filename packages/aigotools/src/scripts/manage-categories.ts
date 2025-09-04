@@ -10,7 +10,7 @@ import { CategoryModel } from "../models/category";
 import dbConnect from "../lib/db-connect";
 
 // 分类管理命令
-const commands = {
+const commands: { [key: string]: () => Promise<void> } = {
   init: initIndieCategories,
   list: listCategories,
   clear: clearCategories,
@@ -71,11 +71,11 @@ async function showStats() {
 
   // 按目标受众统计
   const categories = await CategoryModel.find({});
-  const audienceStats = {};
+  const audienceStats: { [key: string]: number } = {};
 
   categories.forEach(cat => {
     if (cat.targetAudience && cat.targetAudience.length > 0) {
-      cat.targetAudience.forEach(audience => {
+      cat.targetAudience.forEach((audience: string) => {
         audienceStats[audience] = (audienceStats[audience] || 0) + 1;
       });
     }
@@ -108,7 +108,7 @@ commands[command]()
     console.log(`\n✅ 命令 '${command}' 执行完成`);
     process.exit(0);
   })
-  .catch((error) => {
+  .catch((error: any) => {
     console.error(`\n❌ 命令 '${command}' 执行失败:`, error);
     process.exit(1);
   });
