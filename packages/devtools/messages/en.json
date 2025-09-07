@@ -1,0 +1,207 @@
+{
+  "header": {
+    "submit": "Submit",
+    "login": "Login",
+    "admin": "Admin",
+    "dashboard": "Dashboard"
+  },
+  "footer": {
+    "slogan": "Discover 10000+ Developer's Useful Tools",
+    "submitATool": "Submit a Tool",
+    "aboutUs": "About Us",
+    "contactUs": "Contact Us",
+    "privacy": "Privacy",
+    "latestSubmit": "Latest",
+    "featured": "Featured",
+    "blogs": "Blogs"
+  },
+  "upload": {
+    "uploadFailed": "Upload file failed"
+  },
+  "dashboard": {
+    "siteManage": "Site Manage",
+    "reviewManage": "Review Manage",
+    "categoryManage": "Category Manage"
+  },
+  "index": {
+    "slogan": "Discover 10000+ Developer's Useful Tools",
+    "featured": "Featured",
+    "latest": "Latest",
+    "searchPlaceholder": "Search tools...",
+    "clearAll": "Clear All",
+    "more": "More +"
+  },
+  "signin": {
+    "title": "sigin In",
+    "continueWithGoogle": "Sign in with Google"
+  },
+  "metadata": {
+    "title": "ShipTools - Discover 10000+ Developer's Useful Tools",
+    "description": "A comprehensive tool navigation platform built for developers, covering 9 major categories including AI tools, design resources, deployment & DevOps. Help indie developers quickly find the right tools to boost development efficiency.",
+    "keywords": "developer tools directory, indie developer tools, AI tools directory, design resources, deployment DevOps tools, marketing tools, analytics tools, development efficiency tools, product tool collection, developer resource platform"
+  },
+  "site": {
+    "categories": "Categories",
+    "users": "Users of this tool",
+    "pricings": "Pricing",
+    "topFeatures": "Top Features",
+    "usecases": "Usecases",
+    "visitSite": "Visit Site",
+    "upvote": "Upvote",
+    "relatedTools": "Related AI Tools",
+    "voteFailed": "Vote Failed",
+    "links": "Links",
+    "loginPage": "Login",
+    "registerPage": "Register",
+    "docPage": "Documentation",
+    "pricingPage": "Pricing",
+    "relatedSearchs": "Related Searchs",
+    "shareToX": "Share to X",
+    "shareFailed": "Share Failed"
+  },
+  "search": {
+    "metadata": {
+      "title": "Search AI tools"
+    },
+    "result": "Search Result",
+    "empty": "Oppos,no result...",
+    "loadMore": "Load More",
+    "loadFailed": "Load Failed"
+  },
+  "submit": {
+    "metadata": {
+      "title": "Submit your Tool"
+    },
+    "title": "Submit your Tool",
+    "subTitle": "Submit your website in one minute",
+    "websiteName": "Website Name",
+    "websiteNamePlaceholder": "ShipTools",
+    "websiteUrl": "Website Url",
+    "websiteUrlPlaceholder": "https://tools.shipnowkit.com",
+    "submit": "Submit",
+    "requireName": "Name is required",
+    "requireUrl": "Url is required",
+    "successSubmit": "Success Submit",
+    "failSubmit": "Fail to submit, please retry or contact us",
+    "request": "Add {code} to your website homepage, and then you can submit your website successfully for free！"
+  },
+  "reviewManage": {
+    "title": "Review Manage",
+    "siteName": "Site Name",
+    "url": "Url",
+    "userEmail": "User Email",
+    "state": "State",
+    "inputSearch": "Search a review",
+    "selectState": "Review state",
+    "createdAt": "Created At",
+    "updatedAt": "Updated At",
+    "operation": "Operations",
+    "failSearch": "Search reviews failed",
+    "failUpdate": "Update review failed",
+    "approve": "Approve",
+    "reject": "Reject",
+    "approved": "Approved",
+    "rejected": "Rejected",
+    "pending": "Pending",
+    "withdraw": "Withdraw"
+  },
+  "siteManage": {
+    "siteName": "Site Name",
+    "index": "Index",
+    "url": "Url",
+    "title": "Site Manage",
+    "weight": "Weight",
+    "search": "Search",
+    "operation": "Operations",
+    "category": "Category",
+    "inputSearch": "Search a site",
+    "selectState": "Site state",
+    "selectProcess": "Process stage",
+    "failSearch": "Search site failed",
+    "state": "State",
+    "createdAt": "Created At",
+    "updatedAt": "Updated At",
+    "edit": "Edit",
+    "publish": "Publish",
+    "unpublish": "Unpublish",
+    "published": "Published",
+    "unpublished": "Unpublished",
+    "failTriggerPublish": "Update publish state failed",
+    "processStage": "Process Stage",
+    "pending": "Pending",
+    "processing": "Processing",
+    "success": "Success",
+    "fail": "Fail",
+    "new": "New",
+    "dispatchFailed": "Dispatch Failed",
+    "stopFailed": "Stop Failed",
+    "dispatch": "Dispatch",
+    "dispatchAll": "Dispatch All",
+    "stop": "Stop",
+    "stopAll": "Stop All",
+    "delete": "Delete",
+    "deleteFailed": "Delete Failed"
+  },
+  "siteEdit": {
+    "newTitle": "New",
+    "updateTitle": "Update",
+    "url": "Url",
+    "name": "Name",
+    "featured": "Featured",
+    "weight": "Weight",
+    "snapshot": "Snapshot",
+    "desceription": "Description",
+    "pricingType": "PricingType",
+    "categories": "Categories",
+    "images": "Images",
+    "features": "Features",
+    "usecases": "Usecases",
+    "users": "Users",
+    "links": "Links",
+    "loginPage": "Login",
+    "registerPage": "Register",
+    "docPage": "Documentation",
+    "pricingPage": "Pricing",
+    "relatedSearchs": "Related Searchs",
+    "pricings": "Pricings",
+    "shareText": "Share Text",
+    "saveFailed": "Save site failed",
+    "save": "Save"
+  },
+  "categoryManage": {
+    "title": "Category Manage",
+    "new": "New",
+    "inputSearch": "Search category name",
+    "categoryName": "Category Name",
+    "categoryLevel": "Category Level",
+    "topLevel": "Top Level",
+    "secondaryLevel": "Secondary Level",
+    "parentCategory": "Parent Category",
+    "weight": "Weight",
+    "updatedAt": "Updated At",
+    "operation": "Operations",
+    "failSearch": "Search categories failed",
+    "failUpdate": "Update category failed",
+    "failDelete": "Delete category failed",
+    "featured": "Featured",
+    "edit": "Edit",
+    "delete": "Delete"
+  },
+  "categoryEdit": {
+    "newTitle": "New",
+    "updateTitle": "Update",
+    "parentCategory": "Parent Category",
+    "categoryName": "Category Name",
+    "categoryIcon": "Category Icon",
+    "saveFailed": "Save category failed",
+    "save": "Save",
+    "featured": "Featured",
+    "weight": "Weight"
+  },
+  "categories": {
+    "metadata": {
+      "title": "Categories"
+    },
+    "loadFailed": "Load Failed"
+  }
+}

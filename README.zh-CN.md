@@ -1,8 +1,8 @@
 <div align="center">
-  <a href="https://github.com/someu/aigotools.git">
+  <a href="https://github.com/dante-is-shipping/devtools.git">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
-  <h2 align="center">AigoTools</h2>
+  <h2 align="center">DevTools</h2>
   <a href="README.md">
     English
   </a>
@@ -15,11 +15,11 @@
 </div>
 
 
-AigoTools 可以帮助用户快速创建和管理导航站点，内置站点管理和自动收录功能，同时提供国际化、SEO、多种图片存储方案。让用户可以快速部署上线自己的导航站。
+DevTools 可以帮助用户快速创建和管理导航站点，内置站点管理和自动收录功能，同时提供国际化、SEO、多种图片存储方案。让用户可以快速部署上线自己的导航站。
 
-点击访问：<a href="https://www.aigotools.com/cn">www.aigotools.com</a>
+> **项目说明**: 本项目基于 [aigotools](https://github.com/someu/aigotools) 进行二次开发。
 
-https://github.com/someu/aigotools/assets/33251742/00d39041-a216-4105-884b-bd19cde6c706
+点击访问：<a href="https://tools.shipnowkit.com/cn">tools.shipnowkit.com</a>
 
 
 ## 目录
@@ -43,7 +43,7 @@ https://github.com/someu/aigotools/assets/33251742/00d39041-a216-4105-884b-bd19c
 
 - **站点管理**
 - **站点信息自动采集（playwright、jina、openai）**
-- **用户管理（clerk）**
+- **用户管理（next-auth）**
 - **国际化**
 - **暗色/亮色主题切换**
 - **SEO 优化**
@@ -53,11 +53,11 @@ https://github.com/someu/aigotools/assets/33251742/00d39041-a216-4105-884b-bd19c
 
 ## 部署
 
-本项目包含导航站主体（`packages/aigotools`）和收录服务（`packages/crawler`）两个部分，可以通过zeabur等托管服务部署，也可以在使用`docker-compose`直接在本地部署。
+本项目包含导航站主体（`packages/devtools`）和收录服务（`packages/crawler`）两个部分，可以通过zeabur等托管服务部署，也可以在使用`docker-compose`直接在本地部署。
 
 ### 前置准备
 
-- 前往 https://clerk.com/ 创建 application，并添加一个用户作为登录管理后台的管理员。
+- 配置 next-auth 认证提供商以获得管理后台的管理员访问权限。
 - 申请好`OpenAI apiKey`和`jina apiKey`，它们会在收录网站时使用
 - 部署好mongodb、redis数据库
 
@@ -66,15 +66,15 @@ https://github.com/someu/aigotools/assets/33251742/00d39041-a216-4105-884b-bd19c
 1. 克隆仓库
 
    ```bash
-   git clone https://github.com/someu/aigotools.git
-   cd aigotools
+   git clone https://github.com/dante-is-shipping/devtools.git
+   cd devtools
    ```
 
 2. 配置环境变量
-   拷贝`packages/aigotools`和`packages/crawler`下的`.env`为`.env.prod`。
+   拷贝`packages/devtools`和`packages/crawler`下的`.env`为`.env.prod`。
 
    ```bash
-   cp packages/aigotools/.env packages/aigotools/.env.prod
+   cp packages/devtools/.env packages/devtools/.env.prod
    cp packages/crawler/.env packages/crawler/.env.prod
    ```
 
@@ -90,11 +90,11 @@ https://github.com/someu/aigotools/assets/33251742/00d39041-a216-4105-884b-bd19c
 
 ### 托管服务部署
 
-[![Deploy on Zeabur](https://zeabur.com/button.svg)](https://zeabur.com/templates/9PSGFO?referralCode=someu)
+[![Deploy on Zeabur](https://zeabur.com/button.svg)](https://zeabur.com/templates/9PSGFO?referralCode=dante-is-shipping)
 
 参考文档：[zeabur-deploy.md](./docs/zeabur-deploy.md)
 
-Zeabur demo链接：https://aigotools.zeabur.app/
+Zeabur demo链接：https://devtools.zeabur.app/
 
 
 ## 开发
@@ -102,8 +102,8 @@ Zeabur demo链接：https://aigotools.zeabur.app/
 1. 克隆仓库
 
    ```bash
-   git clone https://github.com/someu/aigotools.git
-   cd aigotools
+   git clone https://github.com/dante-is-shipping/devtools.git
+   cd devtools
    ```
 
 2. 安装依赖
@@ -113,50 +113,42 @@ Zeabur demo链接：https://aigotools.zeabur.app/
    ```
 
 3. 配置环境变量
-   拷贝`packages/aigotools`和`packages/crawler`下的`.env`为`.env.local`，修改配置文件中内容。
+   拷贝`packages/devtools`和`packages/crawler`下的`.env`为`.env.local`，修改配置文件中内容。
 
    ```bash
-   cp packages/aigotools/.env packages/aigotools/.env.local
+   cp packages/devtools/.env packages/devtools/.env.local
    cp packages/crawler/.env packages/crawler/.env.local
    ```
 
 4. 启动项目
 
-   分别进入`packages/aigotools`和`packages/crawler`。
+   分别进入`packages/devtools`和`packages/crawler`。
 
    ```
    pnpm run dev
    ```
 
-## Figma资源
-
-我们同时开源了本项目的设计稿，欢迎使用本项目的UI和代码开发你自己的网站。
-
-https://www.figma.com/community/file/1385200592630492334/aigotools
-
-![AigoTools Figma](./images/figma-preview.jpg)
-
 
 
 ## 维护者
 
-[@someu](https://github.com/someu)。
+[@dante-is-shipping](https://github.com/dante-is-shipping)。
 
 ## 如何贡献
 
-非常欢迎你的加入！[提一个 Issue](https://github.com/someu/aigotools/issues/new) 或者提交一个 Pull Request。
+非常欢迎你的加入！[提一个 Issue](https://github.com/dante-is-shipping/devtools/issues/new) 或者提交一个 Pull Request。
 
 ## 联系我们
 
 如有任何问题或建议，请通过以下方式联系我们：
 
-- GitHub Issues: [提交问题](https://github.com/someu/aigotools/issues)
-- 电子邮件: someuxyz@gmail.com
+- GitHub Issues: [提交问题](https://github.com/dante-is-shipping/devtools/issues)
+- 电子邮件: dantelin.dev@gmail.com
 
 ## 🌟 Star History
 
-[![Star History](https://api.star-history.com/svg?repos=someu/aigotools&type=Timeline)](https://star-history.com/#someu/aigotools&Timeline)
+[![Star History](https://api.star-history.com/svg?repos=dante-is-shipping/devtools&type=Timeline)](https://star-history.com/#dante-is-shipping/devtools&Timeline)
 
 ## 使用许可
 
-AigoTools 使用 Apache License 2.0 许可证。详细信息请参见 [LICENSE](./LICENSE) 文件。
+DevTools 使用 Apache License 2.0 许可证。详细信息请参见 [LICENSE](./LICENSE) 文件。

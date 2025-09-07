@@ -1,12 +1,12 @@
 version: '3'
 services:
-  aigotools:
-    container_name: aigotools
-    build: ./packages/aigotools
+  devtools:
+    container_name: devtools
+    build: ./packages/devtools
     ports:
       - '0.0.0.0:3000:3000'
     volumes:
-      - ./packages/aigotools/.env.prod:/app/.env
+      - ./packages/devtools/.env.prod:/app/.env
 
   crawler:
     container_name: crawler
@@ -18,7 +18,7 @@ services:
 
   mongo:
     image: mongo:latest
-    container_name: aigotools-mongo
+    container_name: devtools-mongo
     ports:
       - '27017:27017'
     volumes:
@@ -26,12 +26,12 @@ services:
     command: mongod --auth
     environment:
       - MONGO_INITDB_ROOT_USERNAME=root
-      - MONGO_INITDB_ROOT_PASSWORD=aigotools123456
+      - MONGO_INITDB_ROOT_PASSWORD=devtools123456
 
   redis:
     image: redis:latest
-    container_name: aigotools-redis
-    command: [ 'redis-server', '--requirepass', 'aigotools123456' ]
+    container_name: devtools-redis
+    command: [ 'redis-server', '--requirepass', 'devtools123456' ]
     ports:
       - '6379:6379'
     volumes:
@@ -40,7 +40,7 @@ services:
 
   minio:
     image: quay.io/minio/minio
-    container_name: aigotools-minio
+    container_name: devtools-minio
     ports:
       - '127.0.0.1:9000:9000'
       - '127.0.0.1:9001:9001'
@@ -49,7 +49,7 @@ services:
     command: server /data --console-address ":9001"
     environment:
       - MINIO_ROOT_USER=root
-      - MINIO_ROOT_PASSWORD=aigotools123456
+      - MINIO_ROOT_PASSWORD=devtools123456
     healthcheck:
       test:
         [

@@ -1,12 +1,12 @@
 {
-  "name": "aigotools",
+  "name": "devtools",
   "version": "0.1.0",
-  "description": "aigotools",
+  "description": "devtools",
   "keywords": [
-    "aigotools"
+    "devtools"
   ],
-  "homepage": "https://aigotools.com",
-  "author": "someu <someuxyz@gmail.com>",
+  "homepage": "https://tools.shipnowkit.com",
+  "author": "dante <dantelin.dev@gmail.com>",
   "license": "ISC",
   "engines": {
     "node": ">=18.20.2",

@@ -91,6 +91,9 @@ export class Site {
   @Prop()
   state: string;
 
+  @Prop()
+  shareText: string;
+
   @Prop({
     enum: Object.values(ProcessStage),
     default: ProcessStage.fail,

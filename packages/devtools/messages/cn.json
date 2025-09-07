@@ -1,0 +1,207 @@
+{
+  "header": {
+    "submit": "提交",
+    "login": "登录",
+    "admin": "管理员",
+    "dashboard": "控制台"
+  },
+  "footer": {
+    "slogan": "发现 10000+ 提升开发效率的实用工具",
+    "submitATool": "提交工具",
+    "aboutUs": "关于我们",
+    "contactUs": "联系我们",
+    "privacy": "隐私政策",
+    "latestSubmit": "最新提交",
+    "featured": "推荐",
+    "blogs": "博客"
+  },
+  "upload": {
+    "uploadFailed": "上传文件失败"
+  },
+  "dashboard": {
+    "siteManage": "站点管理",
+    "reviewManage": "审核管理",
+    "categoryManage": "分类管理"
+  },
+  "index": {
+    "slogan": "发现 10000+ 提升开发效率的实用工具",
+    "featured": "推荐",
+    "latest": "最新",
+    "searchPlaceholder": "搜索工具...",
+    "clearAll": "清除所有",
+    "more": "更多 +"
+  },
+  "signin": {
+    "title": "登录",
+    "continueWithGoogle": "使用谷歌登录"
+  },
+  "metadata": {
+    "title": "ShipTools - 发现10000+提升开发效率的实用工具",
+    "description": "专为开发者打造的综合工具导航平台，涵盖工具、设计资源、部署运维等9大类别，帮助独立开发者快速找到合适工具，提升开发效率。",
+    "keywords": "开发者工具导航, 独立开发者工具, 工具目录, 设计资源, 部署运维工具, 营销工具, 数据分析工具, 开发效率工具, 产品工具集合, 开发者资源平台"
+  },
+  "site": {
+    "categories": "分类",
+    "users": "用户群体",
+    "pricings": "定价",
+    "topFeatures": "功能特点",
+    "usecases": "使用场景",
+    "visitSite": "访问站点",
+    "upvote": "点赞",
+    "relatedTools": "相关工具",
+    "voteFailed": "点赞失败",
+    "links": "链接",
+    "loginPage": "登录页",
+    "registerPage": "注册页",
+    "docPage": "文档页",
+    "pricingPage": "价格页",
+    "relatedSearchs": "相关搜索",
+    "shareToX": "分享到 X",
+    "shareFailed": "分享失败"
+  },
+  "search": {
+    "metadata": {
+      "title": "搜索工具"
+    },
+    "result": "搜索结果",
+    "empty": "哎呀，结果为空...",
+    "loadMore": "加载更多",
+    "loadFailed": "加载失败"
+  },
+  "submit": {
+    "metadata": {
+      "title": "提交你的工具"
+    },
+    "title": "提交你的工具",
+    "subTitle": "一键提交你的网站",
+    "websiteName": "网站名称",
+    "websiteNamePlaceholder": "ShipTools",
+    "websiteUrl": "网站URL",
+    "websiteUrlPlaceholder": "https://tools.shipnowkit.com",
+    "submit": "提交",
+    "requireName": "需要名称",
+    "requireUrl": "需要URL",
+    "successSubmit": "成功提交",
+    "failSubmit": "提交失败，请重试或联系我们",
+    "request": "请将 {code} 添加到您的网站首页，然后您可以免费成功提交您的网站！"
+  },
+  "reviewManage": {
+    "title": "审核管理",
+    "siteName": "站点名称",
+    "url": "URL",
+    "userEmail": "用户邮箱",
+    "state": "状态",
+    "inputSearch": "搜索审核",
+    "selectState": "审核状态",
+    "createdAt": "创建于",
+    "updatedAt": "更新于",
+    "operation": "操作",
+    "failSearch": "搜索审核失败",
+    "failUpdate": "更新审核失败",
+    "approve": "批准",
+    "reject": "拒绝",
+    "approved": "已批准",
+    "rejected": "已拒绝",
+    "pending": "待审核",
+    "withdraw": "撤回"
+  },
+  "siteManage": {
+    "siteName": "站点名称",
+    "index": "序号",
+    "url": "URL",
+    "title": "站点管理",
+    "weight": "权重",
+    "search": "搜索",
+    "operation": "操作",
+    "category": "分类",
+    "inputSearch": "搜索站点",
+    "selectState": "站点状态",
+    "selectProcess": "爬取状态",
+    "failSearch": "搜索站点失败",
+    "state": "状态",
+    "createdAt": "创建于",
+    "updatedAt": "更新于",
+    "edit": "编辑",
+    "publish": "发布",
+    "unpublish": "取消发布",
+    "published": "已发布",
+    "unpublished": "未发布",
+    "failTriggerPublish": "更新发布状态失败",
+    "processStage": "处理阶段",
+    "pending": "未下发",
+    "processing": "处理中",
+    "success": "成功",
+    "fail": "失败",
+    "new": "新建",
+    "dispatchFailed": "下发失败",
+    "stopFailed": "下发失败",
+    "dispatch": "爬取",
+    "dispatchAll": "爬取所有",
+    "stop": "停止",
+    "stopAll": "停止所有",
+    "delete": "删除",
+    "deleteFailed": "删除失败"
+  },
+  "siteEdit": {
+    "newTitle": "新建",
+    "updateTitle": "更新",
+    "url": "URL",
+    "name": "名称",
+    "featured": "推荐",
+    "weight": "权重",
+    "snapshot": "屏幕截图",
+    "description": "描述",
+    "pricingType": "定价类型",
+    "categories": "分类",
+    "images": "图片",
+    "features": "功能特点",
+    "usecases": "使用场景",
+    "users": "用户群体",
+    "links": "链接",
+    "loginPage": "登录页",
+    "registerPage": "注册页",
+    "docPage": "文档页",
+    "pricingPage": "价格页",
+    "relatedSearchs": "相关搜索",
+    "pricings": "定价",
+    "shareText": "分享文案",
+    "saveFailed": "保存站点失败",
+    "save": "保存"
+  },
+  "categoryManage": {
+    "title": "分类管理",
+    "new": "新建",
+    "inputSearch": "搜索分类名",
+    "categoryName": "分类名称",
+    "categoryLevel": "层级",
+    "topLevel": "一级分类",
+    "secondaryLevel": "二级分类",
+    "parentCategory": "父分类",
+    "weight": "权重",
+    "updatedAt": "更新于",
+    "operation": "操作",
+    "failSearch": "搜索分类失败",
+    "failUpdate": "更新分类失败",
+    "failDelete": "删除分类失败",
+    "featured": "推荐",
+    "edit": "编辑",
+    "delete": "删除"
+  },
+  "categoryEdit": {
+    "newTitle": "新建",
+    "updateTitle": "更新",
+    "parentCategory": "父分类",
+    "categoryName": "分类名称",
+    "categoryIcon": "图标",
+    "saveFailed": "保存分类失败",
+    "save": "保存",
+    "featured": "推荐",
+    "weight": "权重"
+  },
+  "categories": {
+    "metadata": {
+      "title": "分类"
+    },
+    "loadFailed": "加载失败"
+  }
+}

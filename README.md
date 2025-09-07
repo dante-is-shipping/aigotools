@@ -1,8 +1,8 @@
 <div align="center">
-  <a href="https://github.com/someu/aigotools.git">
+  <a href="https://github.com/dante-is-shipping/devtools.git">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
-  <h2 align="center">AigoTools</h2>
+  <h2 align="center">DevTools</h2>
   <a href="README.zh-CN.md">
     简体中文
   </a>
@@ -14,11 +14,11 @@
   <br>
 </div>
 
-AigoTools helps users quickly create and manage website directory with built-in site management and automatic inclusion features. It also offers internationalization, SEO, and multiple image storage solutions, enabling users to quickly deploy and launch their own navigation site.
+DevTools helps users quickly create and manage website directory with built-in site management and automatic inclusion features. It also offers internationalization, SEO, and multiple image storage solutions, enabling users to quickly deploy and launch their own navigation site.
 
-Visit here: <a href="https://www.aigotools.com/cn">www.aigotools.com</a>
+> **Project Note**: This project is a secondary development based on [aigotools](https://github.com/someu/aigotools).
 
-https://github.com/someu/aigotools/assets/33251742/00d39041-a216-4105-884b-bd19cde6c706
+Visit here: <a href="https://tools.shipnowkit.com/cn">tools.shipnowkit.com</a>
 
 
 ## Table of Contents
@@ -41,7 +41,7 @@ https://github.com/someu/aigotools/assets/33251742/00d39041-a216-4105-884b-bd19c
 
 - **Site Management**
 - **Automatic Site Information Collection (playwright, jina, openai)**
-- **User Management (clerk)**
+- **User Management (next-auth)**
 - **Internationalization**
 - **Dark/Light Theme Toggle**
 - **SEO Optimization**
@@ -49,11 +49,11 @@ https://github.com/someu/aigotools/assets/33251742/00d39041-a216-4105-884b-bd19c
 
 ## Deployment
 
-This project consists of the main navigation site (`packages/aigotools`) and the inclusion service (`packages/crawler`). It can be deployed via hosting services like Zeabur or directly on a local machine using `docker-compose`.
+This project consists of the main navigation site (`packages/devtools`) and the inclusion service (`packages/crawler`). It can be deployed via hosting services like Zeabur or directly on a local machine using `docker-compose`.
 
 ### Prerequisites
 
-- Create an application at https://clerk.com/ and add a user to log in as the admin for the management backend.
+- Configure authentication providers in next-auth for admin access to the management backend.
 - Obtain `OpenAI apiKey` and `jina apiKey`, which are used for site inclusion.
 - Set up MongoDB and Redis databases.
 
@@ -62,15 +62,15 @@ This project consists of the main navigation site (`packages/aigotools`) and the
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/someu/aigotools.git
-   cd aigotools
+   git clone https://github.com/dante-is-shipping/devtools.git
+   cd devtools
    ```
 
 2. Configure environment variables:
-   Copy the `.env` files in `packages/aigotools` and `packages/crawler` to `.env.prod`.
+   Copy the `.env` files in `packages/devtools` and `packages/crawler` to `.env.prod`.
 
    ```bash
-   cp packages/aigotools/.env packages/aigotools/.env.prod
+   cp packages/devtools/.env packages/devtools/.env.prod
    cp packages/crawler/.env packages/crawler/.env.prod
    ```
 
@@ -86,19 +86,19 @@ This project consists of the main navigation site (`packages/aigotools`) and the
 
 ### Hosting Service Deployment
 
-[![Deploy on Zeabur](https://zeabur.com/button.svg)](https://zeabur.com/templates/9PSGFO?referralCode=someu)
+[![Deploy on Zeabur](https://zeabur.com/button.svg)](https://zeabur.com/templates/9PSGFO?referralCode=dante-is-shipping)
 
 Refer to the documentation: [zeabur-deploy.md](./docs/zeabur-deploy.md)
 
-Zeabur demo link: https://aigotools.zeabur.app/
+Zeabur demo link: https://devtools.zeabur.app/
 
 ## Development
 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/someu/aigotools.git
-   cd aigotools
+   git clone https://github.com/dante-is-shipping/devtools.git
+   cd devtools
    ```
 
 2. Install dependencies:
@@ -108,49 +108,41 @@ Zeabur demo link: https://aigotools.zeabur.app/
    ```
 
 3. Configure environment variables:
-   Copy the `.env` files in `packages/aigotools` and `packages/crawler` to `.env.local` and modify the configuration files.
+   Copy the `.env` files in `packages/devtools` and `packages/crawler` to `.env.local` and modify the configuration files.
 
    ```bash
-   cp packages/aigotools/.env packages/aigotools/.env.local
+   cp packages/devtools/.env packages/devtools/.env.local
    cp packages/crawler/.env packages/crawler/.env.local
    ```
 
 4. Start the project:
-   Navigate to `packages/aigotools` and `packages/crawler` respectively.
+   Navigate to `packages/devtools` and `packages/crawler` respectively.
 
    ```bash
    pnpm run dev
    ```
 
-## Figma Resource
-
-We have also open-sourced the design drafts for this project. Feel free to use the UI and code from this project to develop your own website.
-
-https://www.figma.com/community/file/1385200592630492334/aigotools
-
-![AigoTools Figma](./images/figma-preview.jpg)
-
 
 ## Maintainers
 
-[@someu](https://github.com/someu).
+[@dante-is-shipping](https://github.com/dante-is-shipping).
 
 ## How to Contribute
 
-We warmly welcome your contributions! [Submit an Issue](https://github.com/someu/aigotools/issues/new) or submit a Pull Request.
+We warmly welcome your contributions! [Submit an Issue](https://github.com/dante-is-shipping/devtools/issues/new) or submit a Pull Request.
 
 ## Contact Us
 
 For any questions or suggestions, please contact us via:
 
-- GitHub Issues: [Submit Issues](https://github.com/someu/aigotools/issues)
-- Email: someuxyz@gmail.com
+- GitHub Issues: [Submit Issues](https://github.com/dante-is-shipping/devtools/issues)
+- Email: dantelin.dev@gmail.com
 
 ## 🌟 Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=someu/aigotools&type=Timeline)](https://star-history.com/#someu/aigotools&Timeline)
+[![Star History Chart](https://api.star-history.com/svg?repos=dante-is-shipping/devtools&type=Timeline)](https://star-history.com/#dante-is-shipping/devtools&Timeline)
 
 
 ## License
 
-AigoTools is licensed under the Apache License 2.0. For more details, see the [LICENSE](./LICENSE) file.
+DevTools is licensed under the Apache License 2.0. For more details, see the [LICENSE](./LICENSE) file.
